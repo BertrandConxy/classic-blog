@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+
 .navbar {
     position: relative;
 }
@@ -8,4 +9,24 @@
     position: absolute;
     top: 6%;
     right: 2%;
+}
+
+.section-100 {
+    height: 100vh;
+}
+
+.container-70 {
+    width: 70%;
+}
+
+.mt-8 {
+    margin: 8rem;
+}
+
+.rounded-5 {
+    border-radius: 1.8rem;
+}
+
+.new_user {
+    width: 40%;
 }
