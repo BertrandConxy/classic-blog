@@ -35,6 +35,10 @@ Rails.application.configure do
 
   # default action mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # configure sass
+  config.sass.preferred_syntax = :sass
+  config.sass.syntax = :sass
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
