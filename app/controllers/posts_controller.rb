@@ -41,7 +41,8 @@ class PostsController < ApplicationController
     if @post.destroy
       redirect_to posts_url, notice: "Post was successfully destroyed."
     else
-     notice: "Post was not deleted"
+      redirect_to posts_url, notice: "Post was not deleted"
+    end
   end
 
   private

@@ -1,12 +1,12 @@
 <section>
     <div class='d-flex justify-content-around rounded align-items-center bg-light p-3'>
-        <%= image_tag(user.image, height: 150, class: 'round') %>
-        <h2 class="flex-grow-3"> <%= user.name %> </h2>
-        <p> <%= user.bio if user.bio.present?  %> </p>
-        <%= link_to 'Edit profile',edit_user_registration, class:'btn btn-dark' %>
+        <%= image_tag(@user.image, height: 150, class: 'round') %>
+        <h2 class="flex-grow-3"> <%= @user.name %> </h2>
+        <p> <%= @user.bio if @user.bio.present?  %> </p>
+        <%= link_to 'Edit profile',edit_user_registration_path, class:'btn btn-dark' %>
     </div>
     <hr>
     <div>
-        
+    
     </div>
 </section>
