@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
-      redirect_to users_post_url(@post), notice: "Post was successfully created."
+      redirect_to user_post_url(:user_id => params[:user_id]), notice: "Post was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -39,9 +39,9 @@ class PostsController < ApplicationController
   def destroy
 
     if @post.destroy
-      redirect_to posts_url, notice: "Post was successfully destroyed."
+      redirect_to user_posts_url(params[:user_id]), notice: "Post was successfully destroyed."
     else
-      redirect_to posts_url, notice: "Post was not deleted"
+      redirect_to user_posts_url(params[:user_id]), notice: "Post was not deleted"
     end
   end
 
@@ -52,7 +52,7 @@ class PostsController < ApplicationController
     end
 
     def set_author
-      @author = User.find(params[:id])
+      @author = User.find(params[:user_id])
     end
 
     # Only allow a list of trusted parameters through.
