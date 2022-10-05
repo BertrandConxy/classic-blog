@@ -1,2 +1,13 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<section>
+    <h1>Bloggers</h1>
+    <% if @users.empty? %>
+        <p>There are no available bloggers yet</p>
+    <% else %>
+        <% @users.each do |user| %>
+            <div>
+                <%= image_tag(user.image, height: 90) %>
+                <h2> <%= user.name %> </h2>
+            </div>
+        <% end %>
+    <% end %>
+</section>
