@@ -1,42 +1,43 @@
-<%= form_with(url: user_posts_path, model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<section class="d-flex flex-column align-items-center">
+  <h1 class="text-center fs-1">New post</h1>
 
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+
+  <%= form_with(url: user_posts_path, model: post, class: "w-100") do |form| %>
+    <% if post.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+        <ul>
+          <% post.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field mb-3">
+      <%= form.label :title, class: "d-block fs-5" %>
+      <%= form.text_field :title, placeholder: 'Add Article Title..', class: 'form-control' %>
+    </div>
+
+    <div class="field mb-3">
+      <%= form.label :body, class: "d-block fs-5" %>
+      <%= form.text_area :body, placeholder: 'Add Article Body..', class: 'form-control' %>
+    </div>
+
+    <div class="field mb-3">
+      <%= form.label :comments_count, class: "d-block fs-5" %>
+      <%= form.number_field :comments_count %>
+    </div>
+
+    <div class="field mb-3">
+      <%= form.label :likes_count, class: "d-block fs-5" %>
+      <%= form.number_field :likes_count %>
+    </div>
+
+    <div class="field mb-3">
+      <%= form.submit class: "btn btn-dark" %>
     </div>
   <% end %>
+</section>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div>
-    <%= form.label :comments_count, style: "display: block" %>
-    <%= form.number_field :comments_count %>
-  </div>
-
-  <div>
-    <%= form.label :likes_count, style: "display: block" %>
-    <%= form.number_field :likes_count %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
