@@ -1,27 +1,13 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
+<div>
+
+  <h1 class="text-center"><%= post.title %></h1>
 
   <p>
-    <strong>Body:</strong>
     <%= post.body %>
   </p>
 
   <p>
-    <strong>Comments count:</strong>
-    <%= post.comments_count %>
+    <strong>Comments: <%= post.comments_count %> | </strong>
+     <strong>Likes: <%= post.likes_count %></strong>
   </p>
-
-  <p>
-    <strong>Likes count:</strong>
-    <%= post.likes_count %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= post.user_id %>
-  </p>
-
 </div>

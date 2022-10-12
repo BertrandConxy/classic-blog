@@ -1,9 +1,6 @@
-<h1>New post</h1>
+<section class="container">
+  <%= link_to "<--Back", user_path(params[:user_id]), class: "fw-bold fs-5 position-absolute  mt-3 link text-decoration-none text-dark" %>
+  <%= render "shared/post-form", post: @post %>
+</section>
 
-<%= render "shared/post-form", post: @post %>
 
-<br>
-
-<div>
-  <%= link_to "Back to posts", user_posts_path %>
-</div>
