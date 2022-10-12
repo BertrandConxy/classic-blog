@@ -8,10 +8,10 @@
     <hr>
     <div class="container">
        <% @posts.each do |post| %>
-        <%= link_to user_post_path(post.id), class:'link text-decoration-none text-dark' do%>
+        <%= link_to user_post_path(id: post.id, user_id: post.user.id), class:'link text-decoration-none text-dark' do%>
             <div class="border-bottom">
                 <h2> <%= post.title %>  </h2>
-                <p class="truncated"> <%= post.body  %> </p>
+                <p class="truncated"> <%= post.body %> </p>
             </div>
         <% end %>
        <% end %>
