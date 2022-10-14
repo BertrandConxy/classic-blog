@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   root "users#index"
   devise_for :users
   resources :users, only: [:index, :show] do
