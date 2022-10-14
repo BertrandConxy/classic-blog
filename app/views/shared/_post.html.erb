@@ -6,8 +6,13 @@
     <%= post.body %>
   </p>
 
-  <p>
-    <strong>Comments: <%= post.comments_count %> | </strong>
-     <strong>Likes: <%= post.likes_count %></strong>
-  </p>
+  <div>
+    <%= button_to "Like", user_post_likes_path(user_id: current_user.id, post_id: params[:id]), authenticity_token: true, data: { turbo_frame: "likes" },  class:'btn btn-dark mx-3' %>
+    <p>
+      <strong>Comments: <%= post.comments_count %> | </strong>
+      <%= turbo_frame_tag "likes"  do%>
+        <strong>Likes: <%= post.likes_count %></strong>
+      <% end %>
+    </p>
+  </div>
 </div>
