@@ -4,7 +4,9 @@
         <p>There are no available bloggers yet</p>
     <% else %>
         <% @users.each do |user| %>
-            <%= render partial: 'shared/users-display', locals: {user: user} %>
+            <% unless current_user == user%>
+                <%= render partial: 'shared/users-display', locals: {user: user} %>
+            <% end %>
         <% end %>
     <% end %>
 </section>
