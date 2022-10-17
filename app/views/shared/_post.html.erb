@@ -1,13 +1,15 @@
 <div>
-
   <h1 class="text-center"><%= post.title %></h1>
-
   <p>
     <%= post.body %>
   </p>
-
-  <p>
-    <strong>Comments: <%= post.comments_count %> | </strong>
-     <strong>Likes: <%= post.likes_count %></strong>
-  </p>
+  <div class="d-flex align-items-baseline justify-content-start">
+    <%= button_to "Like", user_post_likes_path(user_id: params[:user_id], post_id: params[:id]), authenticity_token: true, data: { turbo_frame: "likes" },  class:'btn btn-dark mx-3' %>
+    <p>
+      <strong>Comments: <%= post.comments_count %> | </strong>
+      <%= turbo_frame_tag "likes"  do%>
+        <strong>Likes: <%= post.likes_count %></strong>
+      <% end %>
+    </p>
+  </div>
 </div>

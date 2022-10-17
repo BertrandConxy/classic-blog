@@ -5,8 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts, dependent: :destroy
-  validates_associated :posts
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
+  validates_associated :posts, :comments, :likes
+  validates :name, presence: true
+  validates :posts_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   has_one_attached :image
-  validates :name, :image, presence: true
 end

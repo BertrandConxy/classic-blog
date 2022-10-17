@@ -1,8 +1,31 @@
 <section class="container position-relative">
   <%= render partial: 'shared/post', locals: {post: @post } %>
+  <div class="container">
+    <%= form_with url: user_post_comments_path(user_id: params[:user_id], post_id: @post.id), class: "d-flex flex-row gap-3", model: @comment, method: :post, authenticity_token: true, data: { turbo_frame: "comments" } do |f| %>
+      <%= f.text_field :text, placeholder: 'Add comment...', class: 'form-control' %>
+      <%= f.submit "Post", class: "btn btn-outline-dark" %>
+    <% end %>
+  </div>
+  <h3>Comments:</h3>
+  <div class="my-2">
+  
+    <%= turbo_frame_tag "comments" do %>
+      <% if !@comments.empty? %>
+        <div class='queries'>
+          <% @comments.each do |comment| %>
+            <ul class="list-group">
+                <li class='list-group-item'> <strong><%= comment.user.name %></strong> : <%= comment.text  %></li>
+            </ul>
+          <% end %>
+        </div>
+        <% else %>
+        <p>No comments added yet</p>
+      <% end %>
+    <% end %>
+  </div>
 
   <div>
-    <%= link_to "<--Back", user_path(params[:user_id]), class: "fw-bold fs-5 position-absolute top-0 mt-3 link text-decoration-none text-dark" %>
+    <%= link_to "<--", user_path(params[:user_id]), class: "fw-bold fs-5 position-absolute top-0  link text-decoration-none text-dark" %>
     <%= button_to "Remove this post", user_post_path(@post), method: :delete, class: "btn btn-danger"%>
   </div>
 </section>
