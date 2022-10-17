@@ -4,7 +4,7 @@
     <%= post.body %>
   </p>
   <div class="d-flex align-items-baseline justify-content-start">
-    <%= button_to "Like", user_post_likes_path(user_id: current_user.id, post_id: params[:id]), authenticity_token: true, data: { turbo_frame: "likes" },  class:'btn btn-dark mx-3' %>
+    <%= button_to "Like", user_post_likes_path(user_id: params[:user_id], post_id: params[:id]), authenticity_token: true, data: { turbo_frame: "likes" },  class:'btn btn-dark mx-3' %>
     <p>
       <strong>Comments: <%= post.comments_count %> | </strong>
       <%= turbo_frame_tag "likes"  do%>

@@ -11,7 +11,7 @@ class LikesController < ApplicationController
         redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id]), alert: 'like could not be created'
       end
     else
-      redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id]), alert: 'Already liked'
+      redirect_to user_post_path( id: params[:post_id]), alert: 'Already liked'
     end
   end
 
