@@ -11,7 +11,6 @@ class LikesController < ApplicationController
         redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id]), alert: 'like could not be created'
       end
     else
-      # redirect_to user_post_like_url(id: @like, user_id: params[:user_id], post_id: params[:post_id])
       redirect_to user_post_path(user_id: params[:user_id], id: params[:post_id]), alert: 'Already liked'
     end
   end
@@ -27,7 +26,7 @@ class LikesController < ApplicationController
   private
 
   def set_like
-    @like = Like.where(user: current_user, post: params[:post_id])
+    @like = Like.where(user_id: params[:user_id], post_id: params[:post_id])
   end
 
 end
