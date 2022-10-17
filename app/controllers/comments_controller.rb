@@ -15,7 +15,8 @@ class CommentsController < ApplicationController
   def destroy
     @comment = @post.comments.find(params[:comment_id])
     if @comment.destroy
-      redirect_to user_post_path(user_id: params[:user_id], id: @post.id), notice: 'Comment has been deleted successfully'
+      redirect_to user_post_path(user_id: params[:user_id], id: @post.id),
+                  notice: 'Comment has been deleted successfully'
     else
       redirect_to user_post_path(user_id: params[:user_id], id: @post.id), alert: 'Comment could not be deleted'
     end
