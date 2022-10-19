@@ -71,6 +71,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   # For asserting view templates
   gem 'rails-controller-testing'
+  # Capybara for feature tests
+  gem 'capybara'
 end
 
 group :development do
