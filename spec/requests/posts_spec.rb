@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :request do
+RSpec.describe 'Posts', type: :request do
   before :all do
     @user = create(:user)
     @posts = create_list(:post, 3, user: @user)

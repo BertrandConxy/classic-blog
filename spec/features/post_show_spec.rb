@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "On Post Show", type: :feature do
+RSpec.feature 'On Post Show', type: :feature do
   before(:each) do
     @user = create(:user)
     @post = create(:post, user: @user)
@@ -13,7 +13,7 @@ RSpec.feature "On Post Show", type: :feature do
     expect(page).to have_content(@post.title)
     expect(page).to have_content(@post.body)
   end
-  
+
   scenario 'can see the number of comments and likes' do
     expect(page).to have_content("Comments: #{@post.comments_count}")
     expect(page).to have_content("Likes: #{@post.likes_count}")

@@ -6,7 +6,7 @@ RSpec.describe Post, type: :model do
     @post = create(:post, user: @user)
   end
 
-  describe "Model validation" do
+  describe 'Model validation' do
     it 'is valid with valid attributes' do
       expect(@post).to be_valid
     end

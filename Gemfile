@@ -81,6 +81,8 @@ group :development do
 
   # Rubocop for linters
   gem 'rubocop', '>= 1.0', '< 2.0'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

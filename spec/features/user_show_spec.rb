@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature " On User Show page", type: :feature do
+RSpec.feature ' On User Show page', type: :feature do
   before(:each) do
     @user = create(:user)
     @posts = create_list(:post, 3, user: @user)
@@ -9,7 +9,7 @@ RSpec.feature " On User Show page", type: :feature do
 
   scenario 'can see the username, photo and bio' do
     expect(page).to have_content(@user.name)
-    expect(page).to have_css("img")
+    expect(page).to have_css('img')
     expect(page).to have_content(@user.bio)
   end
 

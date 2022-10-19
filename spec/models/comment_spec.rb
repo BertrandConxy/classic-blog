@@ -26,9 +26,9 @@ RSpec.describe Comment, type: :model do
       @comment.text = nil
       expect(@comment).to_not be_valid
     end
-    
+
     it 'is not valid with text length greater than 800' do
-      expect(@comment.text.length).to be_between(1,800) 
+      expect(@comment.text.length).to be_between(1, 800)
     end
   end
 end
