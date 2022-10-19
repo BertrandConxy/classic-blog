@@ -1,6 +1,10 @@
 <section>
     <div class='d-flex justify-content-around rounded align-items-center bg-light p-3 gap-2'>
-        <%= image_tag(@user.image, height: 150, class: 'round') %>
+        <% if @user.image.present? %>
+            <%= image_tag(@user.image, height: 150, class: 'round') %>
+        <% else %>
+            <%= image_tag("image_placeholder.png", height: 150, class: 'round') %>
+        <% end %>
         <div class="d-flex flex-column">
             <h2 class="flex-grow-3"> <%= @user.name %> </h2>
             <p> <%= @user.bio if @user.bio.present?  %> </p>

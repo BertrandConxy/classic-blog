@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource param_method: :post_params
+
   before_action :set_post, only: %i[show edit update destroy]
   before_action :set_author, only: %i[index show destroy]
 
@@ -15,8 +17,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def edit; end
-
   def create
     @post = Post.new(post_params)
     @post.user = current_user
@@ -25,14 +25,6 @@ class PostsController < ApplicationController
       redirect_to user_post_url(user_id: params[:user_id], id: @post.id), notice: 'Post was successfully created.'
     else
       render :new, status: :unprocessable_entity
-    end
-  end
-
-  def update
-    if @post.update(post_params)
-      redirect_to users_post_url(@post), notice: 'Post was successfully updated.'
-    else
-      render :edit, status: :unprocessable_entity
     end
   end
 

@@ -10,6 +10,8 @@ AllCops:
 
   DisplayCopNames: true
 
+  SuggestExtensions: false
+
   TargetRubyVersion: 2.6.0
 
 

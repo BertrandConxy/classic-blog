@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_like, only: %i[create destroy]
 
   def create
