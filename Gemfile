@@ -69,6 +69,8 @@ group :development, :test do
   gem 'rspec', '~> 3.11'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  # For asserting view templates
+  gem 'rails-controller-testing'
 end
 
 group :development do
