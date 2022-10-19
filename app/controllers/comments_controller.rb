@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource param_method: :comment_params
+
   before_action :set_post, only: %i[create destroy]
 
   def create

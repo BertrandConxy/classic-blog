@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource param_method: :post_params
+
   before_action :set_post, only: %i[show edit update destroy]
   before_action :set_author, only: %i[index show destroy]
 
